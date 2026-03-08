@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<story_context id="1-1-hero-spawn-and-march">
+  <metadata>
+    <story_id>1.1</story_id>
+    <story_key>1-1-hero-spawn-and-march</story_key>
+    <epic_id>1</epic_id>
+    <project_name>finalboss</project_name>
+    <status>ready-for-dev</status>
+    <generated_date>2026-03-08</generated_date>
+  </metadata>
+
+  <user_story>
+    <as_a>ゲーム開発者 (魔王)</as_a>
+    <i_want>左端の町から勇者を自動的に出現させ、右端の玉座に向かって行進させたい</i_want>
+    <so_that>ゲームの基本的な脅威と防衛目標を確立できる</so_that>
+  </user_story>
+
+  <acceptance_criteria>
+    <item id="AC1">左端の指定座標から、設定された間隔（デフォルト3秒）で勇者が自動生成される。</item>
+    <item id="AC2">生成された勇者が、右方向（x軸プラス）へ一定速度で移動し続ける。</item>
+    <item id="AC3">勇者が右端の判定ライン（玉座）に接触または超過した際、GlobalSignals.hero_reached_throne が発火する。</item>
+    <item id="AC4">シグナル発火後、UIに「Game Over」が表示され、ゲームの進行が停止する。</item>
+  </acceptance_criteria>
+
+  <artifacts>
+    <docs>
+      <entry>
+        <path>docs/tech-spec-epic-1.md</path>
+        <title>Epic 1 Technical Specification</title>
+        <section>Unit Spawner &amp; Base Unit</section>
+        <snippet>UnitSpawnerによる自動生成、BaseUnit継承による移動実装のガイドライン。</snippet>
+      </entry>
+      <entry>
+        <path>docs/game-architecture.md</path>
+        <title>Game Architecture</title>
+        <section>Signal Bus Pattern</section>
+        <snippet>GlobalSignalsを介した疎結合通信、Area2Dベースの移動パターンの定義。</snippet>
+      </entry>
+    </docs>
+    <code>
+      <entry>
+        <path>res://scripts/core/GlobalSignals.gd</path>
+        <kind>singleton</kind>
+        <symbol>GlobalSignals</symbol>
+        <reason>hero_reached_throne シグナルの定義場所</reason>
+      </entry>
+      <entry>
+        <path>res://scripts/units/BaseUnit.gd</path>
+        <kind>base_class</kind>
+        <symbol>BaseUnit</symbol>
+        <reason>全てのユニット（勇者・モンスター）の基底クラス</reason>
+      </entry>
+    </code>
+    <dependencies>
+      <ecosystem>Godot 4.6.1 (Stable)</ecosystem>
+      <package name="GlobalSignals" version="Custom Singleton" />
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <item>move_and_slide は使用せず、position.x += speed * delta で制御する。</item>
+    <item>GlobalSignals を介した疎結合通信を徹底すること。</item>
+    <item>全てのユニットは Area2D をベースとし、物理演算ではなく領域判定を使用する。</item>
+  </constraints>
+
+  <tests>
+    <standards>Godot Unit Test (GUT) または手動検証によるシグナル発火確認</standards>
+    <locations>res://tests/units/</locations>
+    <ideas>
+      <item ac="AC3">勇者の position.x が玉座の座標を超えた瞬間にシグナルが一度だけ飛ぶか検証</item>
+      <item ac="AC1">Timerノードの間隔が3秒に設定され、タイムアウト毎にインスタンス化されるか検証</item>
+    </ideas>
+  </tests>
+</story_context>
