@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bpb66a2xskv1e"
+
+[deps]
+
+files=["res://bmad/_cfg/task-manifest.displayName.translation", "res://bmad/_cfg/task-manifest.description.translation", "res://bmad/_cfg/task-manifest.module.translation", "res://bmad/_cfg/task-manifest.path.translation", "res://bmad/_cfg/task-manifest.standalone.translation"]
+
+source_file="res://bmad/_cfg/task-manifest.csv"
+dest_files=["res://bmad/_cfg/task-manifest.displayName.translation", "res://bmad/_cfg/task-manifest.description.translation", "res://bmad/_cfg/task-manifest.module.translation", "res://bmad/_cfg/task-manifest.path.translation", "res://bmad/_cfg/task-manifest.standalone.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

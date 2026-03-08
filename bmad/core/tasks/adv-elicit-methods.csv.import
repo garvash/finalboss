@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cc7plocmiawp"
+
+[deps]
+
+files=["res://bmad/core/tasks/adv-elicit-methods.method.translation", "res://bmad/core/tasks/adv-elicit-methods.description.translation", "res://bmad/core/tasks/adv-elicit-methods.output.translation"]
+
+source_file="res://bmad/core/tasks/adv-elicit-methods.csv"
+dest_files=["res://bmad/core/tasks/adv-elicit-methods.method.translation", "res://bmad/core/tasks/adv-elicit-methods.description.translation", "res://bmad/core/tasks/adv-elicit-methods.output.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

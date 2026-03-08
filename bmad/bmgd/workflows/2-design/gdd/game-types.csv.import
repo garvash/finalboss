@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cd26sy7i8d03p"
+
+[deps]
+
+files=["res://bmad/bmgd/workflows/2-design/gdd/game-types.name.translation", "res://bmad/bmgd/workflows/2-design/gdd/game-types.description.translation", "res://bmad/bmgd/workflows/2-design/gdd/game-types.genre.translation", "res://bmad/bmgd/workflows/2-design/gdd/game-types.fragment.translation"]
+
+source_file="res://bmad/bmgd/workflows/2-design/gdd/game-types.csv"
+dest_files=["res://bmad/bmgd/workflows/2-design/gdd/game-types.name.translation", "res://bmad/bmgd/workflows/2-design/gdd/game-types.description.translation", "res://bmad/bmgd/workflows/2-design/gdd/game-types.genre.translation", "res://bmad/bmgd/workflows/2-design/gdd/game-types.fragment.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

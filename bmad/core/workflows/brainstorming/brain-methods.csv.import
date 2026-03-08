@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c1wt7irh1fsdo"
+
+[deps]
+
+files=["res://bmad/core/workflows/brainstorming/brain-methods.technique.translation", "res://bmad/core/workflows/brainstorming/brain-methods.description.translation", "res://bmad/core/workflows/brainstorming/brain-methods.facilitation.translation", "res://bmad/core/workflows/brainstorming/brain-methods.best.translation", "res://bmad/core/workflows/brainstorming/brain-methods.energy.translation", "res://bmad/core/workflows/brainstorming/brain-methods.typical.translation"]
+
+source_file="res://bmad/core/workflows/brainstorming/brain-methods.csv"
+dest_files=["res://bmad/core/workflows/brainstorming/brain-methods.technique.translation", "res://bmad/core/workflows/brainstorming/brain-methods.description.translation", "res://bmad/core/workflows/brainstorming/brain-methods.facilitation.translation", "res://bmad/core/workflows/brainstorming/brain-methods.best.translation", "res://bmad/core/workflows/brainstorming/brain-methods.energy.translation", "res://bmad/core/workflows/brainstorming/brain-methods.typical.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

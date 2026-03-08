@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://6d4b1a0eyjgs"
+
+[deps]
+
+files=["res://bmad/bmgd/workflows/1-preproduction/brainstorm-game/game-brain-methods.technique.translation", "res://bmad/bmgd/workflows/1-preproduction/brainstorm-game/game-brain-methods.description.translation", "res://bmad/bmgd/workflows/1-preproduction/brainstorm-game/game-brain-methods.facilitation.translation", "res://bmad/bmgd/workflows/1-preproduction/brainstorm-game/game-brain-methods.best.translation", "res://bmad/bmgd/workflows/1-preproduction/brainstorm-game/game-brain-methods.energy.translation", "res://bmad/bmgd/workflows/1-preproduction/brainstorm-game/game-brain-methods.typical.translation"]
+
+source_file="res://bmad/bmgd/workflows/1-preproduction/brainstorm-game/game-brain-methods.csv"
+dest_files=["res://bmad/bmgd/workflows/1-preproduction/brainstorm-game/game-brain-methods.technique.translation", "res://bmad/bmgd/workflows/1-preproduction/brainstorm-game/game-brain-methods.description.translation", "res://bmad/bmgd/workflows/1-preproduction/brainstorm-game/game-brain-methods.facilitation.translation", "res://bmad/bmgd/workflows/1-preproduction/brainstorm-game/game-brain-methods.best.translation", "res://bmad/bmgd/workflows/1-preproduction/brainstorm-game/game-brain-methods.energy.translation", "res://bmad/bmgd/workflows/1-preproduction/brainstorm-game/game-brain-methods.typical.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true
