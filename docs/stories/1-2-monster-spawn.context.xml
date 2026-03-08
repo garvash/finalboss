@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<story_context id="1-2-monster-spawn">
+  <metadata>
+    <story_id>1.2</story_id>
+    <story_key>1-2-monster-spawn</story_key>
+    <epic_id>1</epic_id>
+    <project_name>finalboss</project_name>
+    <status>ready-for-dev</status>
+    <generated_date>2026-03-08</generated_date>
+  </metadata>
+
+  <user_story>
+    <as_a>魔王 (プレイヤー)</as_a>
+    <i_want>ゴールドを消費して、右端からモンスターを召喚し、左に向かって進軍させたい</i_want>
+    <so_that>攻めてくる勇者を押し返し、玉座を守るための戦力を確保できる</so_that>
+  </user_story>
+
+  <acceptance_criteria>
+    <item id="AC1">UIに「召喚 (Monster)」ボタンが表示され、クリック可能であること。</item>
+    <item id="AC2">ボタンを押した際、現在のゴールドが足りていれば（初期値100、コスト10）、ゴールドを減算してモンスターが生成されること。</item>
+    <item id="AC3">生成されたモンスターは、右端（x=1152付近）から左方向（x軸マイナス）へ一定速度で移動し続けること。</item>
+    <item id="AC4">モンスターが画面左端（x=-50付近）に到達した際、自身を消滅（queue_free）させること。</item>
+  </acceptance_criteria>
+
+  <artifacts>
+    <docs>
+      <entry>
+        <path>docs/tech-spec-epic-1.md</path>
+        <title>Epic 1 Technical Specification</title>
+        <section>Unit Spawner &amp; Base Unit</section>
+        <snippet>UnitSpawnerは手動生成（ボタン押下）も担当。MonsterはBaseUnitを継承し、direction=-1.0を持つ。</snippet>
+      </entry>
+      <entry>
+        <path>docs/game-architecture.md</path>
+        <title>Game Architecture</title>
+        <section>Game Management</section>
+        <snippet>GameManager (Autoload) がゴールド状態と消費ロジックを一括管理する。</snippet>
+      </entry>
+    </docs>
+    <code>
+      <entry>
+        <path>scripts/units/BaseUnit.gd</path>
+        <kind>base_class</kind>
+        <symbol>BaseUnit</symbol>
+        <reason>モンスターの継承元。speedとdirectionによる移動ロジックを再利用する。</reason>
+      </entry>
+      <entry>
+        <path>scripts/core/GameManager.gd</path>
+        <kind>singleton</kind>
+        <symbol>GameManager</symbol>
+        <reason>ゴールド変数の追加と、 spend_gold(amount) メソッドの実装対象。</reason>
+      </entry>
+      <entry>
+        <path>scripts/units/UnitSpawner.gd</path>
+        <kind>component</kind>
+        <symbol>UnitSpawner</symbol>
+        <reason>モンスターの手動生成（ spawn_unit(scene, pos) ）の呼び出し先。</reason>
+      </entry>
+    </code>
+    <dependencies>
+      <ecosystem>Godot 4.3 (gl_compatibility)</ecosystem>
+      <package name="GlobalSignals" version="Custom Singleton" />
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <item>物理エンジン (move_and_slide) は使用せず、position.x += speed * delta で制御する。</item>
+    <item>モンスターの進軍方向は常に左（direction = -1.0）。</item>
+    <item>ゴールドが不足している場合は、召喚処理（およびボタンの有効化）を抑制する。</item>
+  </constraints>
+
+  <tests>
+    <standards>手動検証によるボタン動作とゴールド減算の確認</standards>
+    <locations>res://tests/units/</locations>
+    <ideas>
+      <item ac="AC2">ゴールドが10未満の時にボタンを押しても、モンスターが生成されず、ゴールドが負にならないことを検証</item>
+      <item ac="AC4">モンスターの position.x が -50 を下回った瞬間に queue_free() が呼ばれるか検証</item>
+    </ideas>
+  </tests>
+</story_context>
